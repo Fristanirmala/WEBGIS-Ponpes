@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Lokasi Bangunan Pondok Pesantren Al-Munawwir</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Mapbox Directions Plugin -->
+        <!-- Mapbox GL JS -->
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+
+<!-- Mapbox Directions Plugin (WAJIB untuk fitur rute) -->
+<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand">Teknik Geomatika</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">Lokasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Selamat Datang di WebGIS Pondok Pesantren Al-Munawwir!</div>
+                <div class="masthead-subheading">Semoga Hari Anda Menyenangkan</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Mari Ketahui Tentang Kami</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+            <h2 class="section-heading text-uppercase">Lokasi</h2>
+            <h3 class="section-subheading text-muted">
+                Pondok Pesantren Al-Munawwir berlokasi di Krapyak, Bantul, Yogyakarta. 
+                Lingkungannya berada di tengah masyarakat yang religius dengan akses transportasi yang mudah.
+            </h3>
+            </div>
+            <div class="row">
+            <!-- Petunjuk -->
+            <div class="col-lg-3">
+                <div class="card mb-4" style="color:#1d4655;">
+                <div class="card-header" style="font-weight:bold;">Petunjuk</div>
+                <div class="card-body">
+                  <p>1. Gunakan tombol <b>zoom in</b> (+), <b>zoom out</b> (−), dan reset bearing ke utara (↕) untuk mengatur posisi peta.</p>
+                    <p>2. Titik biru bertuliskan huruf <b>A</b> menunjukkan lokasi Anda.</p>
+                    <p>3. Klik tombol 
+                    <button id="fly" class="btn btn-danger btn-sm">Lokasi Pesantren</button> 
+                    untuk menampilkan lokasi Pondok Pesantren Al-Munawwir.</p>
+                    <p>4. Klik salah satu bangunan sebagai tujuan destinasi.</p>
+                    <p>5. Rute ditampilkan sebagai garis biru pada peta.</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="col-lg-9">
+                <div class="card mb-4">
+                <div class="card-body" style="height:600px;">
+                <div id="map" style="width:100%;height:100%;border-radius:8px;"></div>
+                <div id="legend" class="legend mt-2">
+                <h6>Legenda</h6>
+                <div><span style="background:#1e6395;width:18px;height:18px;display:inline-block;margin-right:6px;"></span>Asrama Putra</div>
+                <div><span style="background:#ff6600;width:18px;height:18px;display:inline-block;margin-right:6px;"></span>Asrama Putri</div>
+                <div><span style="background:#ffc130;width:18px;height:18px;display:inline-block;margin-right:6px;"></span>Bangunan Umum</div>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+                </div>
+            </div>
+        </section>
+        <!-- Tentang Pondok-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Tentang Pondok Pesantren Al-Munawwir</h2>
+                    <h3 class="section-subheading text-muted">Pondok Pesantren Al-Munawwir adalah salah satu pusat pendidikan Islam terkemuka yang berlokasi di Krapyak, Yogyakarta. Pesantren ini dikenal luas dengan tradisi keilmuannya, khususnya dalam bidang Al-Qur’an, serta menjadi tempat lahirnya banyak ulama dan cendekiawan.</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/a.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>1911</h4>
+                                <h4 class="subheading">Awal Berdiri</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Pondok Pesantren Al-Munawwir didirikan oleh KH. Muhammad Munawwir di Dusun Krapyak pada 15 November 1911. Sejak awal, pondok ini menekankan pendidikan Al-Quran sebagai ciri khasnya.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/b.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>1942 – 1968</h4>
+                                <h4 class="subheading">Periode Pengasuhan Baru</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Setelah wafatnya KH. M. Munawwir, kepemimpinan diteruskan oleh KH. Abdullah Affandi Munawwir dan KH. Abdul Qodir Munawwir. Pada masa ini lahir Madrasah Huffadh sebagai wadah khusus pendidikan Al-Quran.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/santri putra.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>1968 – 1989</h4>
+                                <h4 class="subheading">Periode KH. Ali Maksum</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Di bawah KH. Ali Maksum, pondok berkembang pesat dengan menambah pengajaran kitab kuning secara klasikal. Lembaga pendidikan formal mulai berdiri, termasuk Madrasah Tsanawiyah dan Aliyah untuk putra-putri.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/santri putri.jpeg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>1989 – Sekarang</h4>
+                                <h4 class="subheading">Perkembangan Modern</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Kepemimpinan berlanjut dari KH. Zainal Abidin Munawwir hingga KH. R. Muhammad Najib Abdul Qodir. Pondok terus memperluas perannya, membuka lembaga pendidikan tinggi Al-Ma’had al-‘Aly, hingga pengajian masyayikh dan alumni (IKAPPAM).</p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+            <h2 class="section-heading text-uppercase">CONTACT</h2>
+            <h3 class="section-subheading text-muted">Akun Media Sosial Kami</h3>
+            </div>
+
+            <div class="row text-center">
+            <!-- Facebook -->
+            <div class="col-md-4">
+                <a href="https://www.facebook.com/almunawwirkrapyak/?locale=id_ID" target="_blank">
+                <img src="assets/img/logos/fb.png" alt="Facebook" class="social-logo">
+                </a>
+                <h4 class="my-3">Facebook</h4>
+                <p class="text-muted">@Pondok Pesantren Al-Munawwir Krapyak</p>
+            </div>
+
+            <!-- Instagram -->
+            <div class="col-md-4">
+                <a href="https://www.instagram.com/almunawwir_com/" target="_blank">
+                <img src="assets/img/logos/ig.png" alt="Instagram" class="social-logo">
+                </a>
+                <h4 class="my-3">Instagram</h4>
+                <p class="text-muted">@almunawwir_com</p>
+            </div>
+
+            <!-- YouTube -->
+            <div class="col-md-4">
+                <a href="https://almunawwir.com/" target="_blank">
+                <img src="assets/img/logos/pesantren.webp" alt="YouTube" class="social-logo">
+                </a>
+                <h4 class="my-3">Website</h4>
+                <p class="text-muted">Almunawwir.com</p>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Frista Nirmala Sari_117230031</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- Mapbox -->
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJpc3RhbmlybWFsYSIsImEiOiJjbWdjYjB3ZzkwcHJvMmtxdW14dzlrdmF6In0.bPpTMn_Ocg5t5SrDWMuBpw';
+
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [110.345, -7.826],
+    zoom: 16
+});
+
+// === Tambahkan Directions Control ===
+const directions = new MapboxDirections({
+    accessToken: mapboxgl.accessToken,
+    unit: 'metric',
+    profile: 'mapbox/driving',
+    language: 'id',
+});
+map.addControl(directions, 'top-right');
+
+// Tombol Fly ke lokasi pesantren
+document.getElementById('fly').addEventListener('click', () => {
+    map.flyTo({
+        center: [110.345, -7.826],
+        zoom: 17,
+        essential: true
+    });
+});
+
+// Marker lokasi utama
+new mapboxgl.Marker({ color: "red" })
+    .setLngLat([110.345, -7.826])
+    .setPopup(new mapboxgl.Popup().setHTML("<b>Pondok Pesantren Al-Munawwir</b>"))
+    .addTo(map);
+
+// === FUNGSI AMBIL LOKASI PENGGUNA ===
+let userLocation = null;
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+        userLocation = [position.coords.longitude, position.coords.latitude];
+        // Set titik asal otomatis untuk rute
+        directions.setOrigin(userLocation);
+    });
+}
+
+// Load GeoJSON
+map.on('load', () => {
+    // Asrama Putra
+    map.addSource('asrama_putra', {
+        type: 'geojson',
+        data: 'assets/geojson/asramaputra.geojson'
+    });
+    map.addLayer({
+        id: 'fill_asramaputra',
+        type: 'fill',
+        source: 'asrama_putra',
+        paint: { 'fill-color': '#1e6395', 'fill-opacity': 0.6 }
+    });
+    map.addLayer({
+        id: 'outline_asramaputra',
+        type: 'line',
+        source: 'asrama_putra',
+        paint: { 'line-color': 'black', 'line-width': 1 }
+    });
+
+    // Asrama Putri
+    map.addSource('asrama_putri', {
+        type: 'geojson',
+        data: 'assets/geojson/asramaputri.geojson'
+    });
+    map.addLayer({
+        id: 'fill_asramaputri',
+        type: 'fill',
+        source: 'asrama_putri',
+        paint: { 'fill-color': '#ff6600', 'fill-opacity': 0.6 }
+    });
+    map.addLayer({
+        id: 'outline_asramaputri',
+        type: 'line',
+        source: 'asrama_putri',
+        paint: { 'line-color': 'black', 'line-width': 1 }
+    });
+
+    // Bangunan Umum
+    map.addSource('bangunan_umum', {
+        type: 'geojson',
+        data: 'assets/geojson/bangunanumum.geojson'
+    });
+    map.addLayer({
+        id: 'fill_bangunanumum',
+        type: 'fill',
+        source: 'bangunan_umum',
+        paint: { 'fill-color': '#ffc130', 'fill-opacity': 0.6 }
+    });
+    map.addLayer({
+        id: 'outline_bangunanumum',
+        type: 'line',
+        source: 'bangunan_umum',
+        paint: { 'line-color': 'black', 'line-width': 1 }
+    });
+
+    // === POPUP INTERAKTIF + RUTE OTOMATIS ===
+    const popup = new mapboxgl.Popup({
+        closeButton: true,
+        closeOnClick: true
+    });
+
+    // Klik area apa pun → tampil popup + rute
+    function showInfoAndRoute(e, label) {
+        const coordinates = e.lngLat;
+        const name = e.features[0].properties.Nama || label;
+        popup.setLngLat(coordinates).setHTML("<b>" + name + "</b>").addTo(map);
+
+        if (userLocation) {
+            // Tentukan tujuan rute ke titik yang diklik
+            directions.setDestination(coordinates);
+        } else {
+            alert("Lokasi Anda belum terdeteksi. Aktifkan GPS untuk melihat rute.");
+        }
+    }
+
+    // Event klik pada setiap layer
+    map.on('click', 'fill_asramaputra', e => showInfoAndRoute(e, "Asrama Putra"));
+    map.on('click', 'fill_asramaputri', e => showInfoAndRoute(e, "Asrama Putri"));
+    map.on('click', 'fill_bangunanumum', e => showInfoAndRoute(e, "Bangunan Umum"));
+});
+
+// Tambahkan tombol kontrol navigasi standar (zoom in/out)
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+// Container untuk tombol
+const menu = document.createElement('div');
+menu.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+
+// Tombol Lokasi Pesantren
+const btnPesantren = document.createElement('button');
+btnPesantren.innerHTML = '🏠';
+btnPesantren.title = "Lokasi Pesantren";
+btnPesantren.onclick = () => {
+    map.flyTo({
+        center: [110.345, -7.826],
+        zoom: 17
+    });
+};
+menu.appendChild(btnPesantren);
+
+// Tombol Lokasi Saya
+const btnLokasi = document.createElement('button');
+btnLokasi.innerHTML = '📍';
+btnLokasi.title = "Lokasi Saya";
+btnLokasi.onclick = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+            const userLoc = [pos.coords.longitude, pos.coords.latitude];
+            new mapboxgl.Marker({ color: "blue" })
+                .setLngLat(userLoc)
+                .setPopup(new mapboxgl.Popup().setHTML("<b>Lokasi Anda</b>"))
+                .addTo(map);
+            map.flyTo({ center: userLoc, zoom: 17 });
+            userLocation = userLoc;
+            directions.setOrigin(userLoc);
+        });
+    } else {
+        alert("Geolocation tidak didukung di browser Anda.");
+    }
+};
+menu.appendChild(btnLokasi);
+
+// Tambahkan menu ke peta
+map.addControl({
+    onAdd: function () {
+        return menu;
+    },
+    onRemove: function () {
+        menu.parentNode.removeChild(menu);
+    }
+}, 'top-left');
+</script>
+
+
+    </body>
+</html>
