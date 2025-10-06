@@ -232,7 +232,7 @@ map.addControl(directions, 'top-right');
 // Tombol Fly ke lokasi pesantren
 document.getElementById('fly').addEventListener('click', () => {
     map.flyTo({
-        center: [110.345, -7.826],
+        center: [110.361292,  -7.826937],
         zoom: 17,
         essential: true
     });
@@ -240,7 +240,7 @@ document.getElementById('fly').addEventListener('click', () => {
 
 // Marker lokasi utama
 new mapboxgl.Marker({ color: "red" })
-    .setLngLat([110.345, -7.826])
+    .setLngLat([110.361292,  -7.826937])
     .setPopup(new mapboxgl.Popup().setHTML("<b>Pondok Pesantren Al-Munawwir</b>"))
     .addTo(map);
 
