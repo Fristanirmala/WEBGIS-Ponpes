@@ -15,14 +15,22 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <!-- Mapbox Directions Plugin -->
-        <!-- Mapbox GL JS -->
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0ef6f6b.js" crossorigin="anonymous"></script>
 
-<!-- Mapbox Directions Plugin (WAJIB untuk fitur rute) -->
-<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet Routing Machine (untuk fitur rute) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+  <!-- Esri Leaflet (untuk basemap & 3D building) -->
+  <script src="https://unpkg.com/esri-leaflet"></script>
+
 
     </head>
     <body id="page-top">
@@ -37,6 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Lokasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#streetview">Street View</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -48,7 +57,7 @@
             <div class="container">
                 <div class="masthead-subheading">Selamat Datang di WebGIS Pondok Pesantren Al-Munawwir!</div>
                 <div class="masthead-subheading">Semoga Hari Anda Menyenangkan</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Mari Ketahui Tentang Kami</a>
+                <a class="btn btn-warning btn-xl text-uppercase text-dark fw-bold" href="#services">Mari Ketahui Tentang Kami</a>
             </div>
         </header>
         <!-- Services-->
@@ -67,13 +76,11 @@
                 <div class="card mb-4" style="color:#1d4655;">
                 <div class="card-header" style="font-weight:bold;">Petunjuk</div>
                 <div class="card-body">
-                  <p>1. Gunakan tombol <b>zoom in</b> (+), <b>zoom out</b> (−), dan reset bearing ke utara (↕) untuk mengatur posisi peta.</p>
-                    <p>2. Titik biru bertuliskan huruf <b>A</b> menunjukkan lokasi Anda.</p>
-                    <p>3. Klik tombol 
-                    <button id="fly" class="btn btn-danger btn-sm">Lokasi Pesantren</button> 
-                    untuk menampilkan lokasi Pondok Pesantren Al-Munawwir.</p>
-                    <p>4. Klik salah satu bangunan sebagai tujuan destinasi.</p>
-                    <p>5. Rute ditampilkan sebagai garis biru pada peta.</p>
+                    <p>1. Gunakan tombol <b>zoom in</b> (+), <b>zoom out</b> (−), dan reset bearing ke utara (↕) untuk mengatur posisi peta.</p>
+                    <p>2. Apabila klik ombol biru dengan simbol <b>📍</b> akan menunjukkan lokasi Anda.</p>
+                    <p>3. Apabila klik ombol merah dengan simbol <b>🏠</b> akan menunjukkan lokasi pesantren Al-Munawwir.</p>
+                    <p>4. Rute ditampilkan sebagai garis merah pada peta.</p>
+                    <p>5. Untuk menghapus rute perjalanan klik simbol <b>❌</b>pada samping tampilan peta</p>
                 </div>
                 </div>
             </div>
@@ -92,6 +99,23 @@
                 </div>
                 </div>
             </div>
+            <!-- Section Street View -->
+<section id="streetview" style="margin-top:100px; padding:60px 0; background-color:#f8fafc;">
+  <div class="container text-center">
+    <h2 style="color:#1d4655; font-weight:bold; margin-bottom:20px;">
+      Lihat Lokasi Pondok Pesantren
+    </h2>
+    <p style="color:#555; margin-bottom:40px;">
+      Tampilan lingkungan sekitar melalui Google Street View
+    </p>
+    <div style="max-width:1000px; margin:auto; border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+           <iframe src="https://www.google.com/maps/embed?pb=!4v1760441191806!6m8!1m7!1s667N3klcRtwFnSbze8PECQ!2m2!1d-7.826683455825212!2d110.3607314397174!3f144.0982303287305!4f10.874100501684126!5f0.7820865974627469" 
+            width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+
             </div>
         </div>
         </section>
@@ -176,7 +200,7 @@
                 <p class="text-muted">@almunawwir_com</p>
             </div>
 
-            <!-- YouTube -->
+            <!-- Website -->
             <div class="col-md-4">
                 <a href="https://almunawwir.com/" target="_blank">
                 <img src="assets/img/logos/pesantren.webp" alt="YouTube" class="social-logo">
@@ -253,183 +277,223 @@
         <!-- Mapbox -->
 
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiZnJpc3RhbmlybWFsYSIsImEiOiJjbWdjYjB3ZzkwcHJvMmtxdW14dzlrdmF6In0.bPpTMn_Ocg5t5SrDWMuBpw';
+// INISIALISASI PETA LEAFLET
+var map = L.map('map').setView([-7.826937, 110.361292], 17);
 
-const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v12',
-    center: [110.361292,  -7.826937],
-    zoom: 16
-});
+// Ganti BASEMAP (Esri World Imagery)
+var esriBase = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', 
+  { attribution: '© Esri, Maxar, Earthstar Geographics' }
+).addTo(map);
 
-// === Tambahkan Directions Control ===
-const directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken,
-    unit: 'metric',
-    profile: 'mapbox/driving',
-    language: 'id',
-});
-map.addControl(directions, 'top-right');
 
-// Tombol Fly ke lokasi pesantren
-document.getElementById('fly').addEventListener('click', () => {
-    map.flyTo({
-        center: [110.361292,  -7.826937],
-        zoom: 17,
-        essential: true
+
+// Nanti bisa kamu ganti dengan GeoJSON milikmu
+fetch('assets/geojson/bangunanumum.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#ffc130", weight: 1, fillOpacity: 0.6 }
+    }).addTo(map).bindPopup("Bangunan Umum");
+  });
+// ==== Klik area GeoJSON → tampilkan rute dari lokasi pengguna ====
+function buatRuteDariLokasiSaya(tujuan) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var userLatLng = [pos.coords.latitude, pos.coords.longitude];
+      L.marker(userLatLng, {
+        icon: L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/64/64113.png',
+          iconSize: [25,25]
+        })
+      })
+      .addTo(map)
+      .bindPopup("<b>Lokasi Anda</b>")
+      .openPopup();
+      map.flyTo(userLatLng, 17);
+
+      control.setWaypoints([
+        L.latLng(userLatLng),
+        L.latLng(tujuan)
+      ]);
     });
-});
-
-// Marker lokasi utama
-new mapboxgl.Marker({ color: "red" })
-    .setLngLat([110.361292,  -7.826937])
-    .setPopup(new mapboxgl.Popup().setHTML("<b>Pondok Pesantren Al-Munawwir</b>"))
-    .addTo(map);
-
-// === FUNGSI AMBIL LOKASI PENGGUNA ===
-let userLocation = null;
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-        userLocation = [position.coords.longitude, position.coords.latitude];
-        // Set titik asal otomatis untuk rute
-        directions.setOrigin(userLocation);
-    });
+  } else {
+    alert("Browser tidak mendukung fitur lokasi.");
+  }
 }
 
-// Load GeoJSON
-map.on('load', () => {
-    // Asrama Putra
-    map.addSource('asrama_putra', {
-        type: 'geojson',
-        data: 'assets/geojson/asramaputra.geojson'
-    });
-    map.addLayer({
-        id: 'fill_asramaputra',
-        type: 'fill',
-        source: 'asrama_putra',
-        paint: { 'fill-color': '#1e6395', 'fill-opacity': 0.6 }
-    });
-    map.addLayer({
-        id: 'outline_asramaputra',
-        type: 'line',
-        source: 'asrama_putra',
-        paint: { 'line-color': 'black', 'line-width': 1 }
-    });
-
-    // Asrama Putri
-    map.addSource('asrama_putri', {
-        type: 'geojson',
-        data: 'assets/geojson/asramaputri.geojson'
-    });
-    map.addLayer({
-        id: 'fill_asramaputri',
-        type: 'fill',
-        source: 'asrama_putri',
-        paint: { 'fill-color': '#ff6600', 'fill-opacity': 0.6 }
-    });
-    map.addLayer({
-        id: 'outline_asramaputri',
-        type: 'line',
-        source: 'asrama_putri',
-        paint: { 'line-color': 'black', 'line-width': 1 }
-    });
-
-    // Bangunan Umum
-    map.addSource('bangunan_umum', {
-        type: 'geojson',
-        data: 'assets/geojson/bangunanumum.geojson'
-    });
-    map.addLayer({
-        id: 'fill_bangunanumum',
-        type: 'fill',
-        source: 'bangunan_umum',
-        paint: { 'fill-color': '#ffc130', 'fill-opacity': 0.6 }
-    });
-    map.addLayer({
-        id: 'outline_bangunanumum',
-        type: 'line',
-        source: 'bangunan_umum',
-        paint: { 'line-color': 'black', 'line-width': 1 }
-    });
-
-    // === POPUP INTERAKTIF + RUTE OTOMATIS ===
-    const popup = new mapboxgl.Popup({
-        closeButton: true,
-        closeOnClick: true
-    });
-
-    // Klik area apa pun → tampil popup + rute
-    function showInfoAndRoute(e, label) {
-        const coordinates = e.lngLat;
-        const name = e.features[0].properties.Nama || label;
-        popup.setLngLat(coordinates).setHTML("<b>" + name + "</b>").addTo(map);
-
-        if (userLocation) {
-            // Tentukan tujuan rute ke titik yang diklik
-            directions.setDestination(coordinates);
-        } else {
-            alert("Lokasi Anda belum terdeteksi. Aktifkan GPS untuk melihat rute.");
-        }
-    }
-
-    // Event klik pada setiap layer
-    map.on('click', 'fill_asramaputra', e => showInfoAndRoute(e, "Asrama Putra"));
-    map.on('click', 'fill_asramaputri', e => showInfoAndRoute(e, "Asrama Putri"));
-    map.on('click', 'fill_bangunanumum', e => showInfoAndRoute(e, "Bangunan Umum"));
-});
-
-// Tambahkan tombol kontrol navigasi standar (zoom in/out)
-map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-
-// Container untuk tombol
-const menu = document.createElement('div');
-menu.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
-
-// Tombol Lokasi Pesantren
-const btnPesantren = document.createElement('button');
-btnPesantren.innerHTML = '🏠';
-btnPesantren.title = "Lokasi Pesantren";
-btnPesantren.onclick = () => {
-    map.flyTo({
-        center: [110.361292,  -7.826937],
-        zoom: 17
-    });
-};
-menu.appendChild(btnPesantren);
-
-// Tombol Lokasi Saya
-const btnLokasi = document.createElement('button');
-btnLokasi.innerHTML = '📍';
-btnLokasi.title = "Lokasi Saya";
-btnLokasi.onclick = () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-            const userLoc = [pos.coords.longitude, pos.coords.latitude];
-            new mapboxgl.Marker({ color: "blue" })
-                .setLngLat(userLoc)
-                .setPopup(new mapboxgl.Popup().setHTML("<b>Lokasi Anda</b>"))
-                .addTo(map);
-            map.flyTo({ center: userLoc, zoom: 17 });
-            userLocation = userLoc;
-            directions.setOrigin(userLoc);
+// Tambahkan event klik ke layer GeoJSON
+fetch('assets/geojson/bangunanumum.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#1e6395", weight: 1, fillOpacity: 0.6 },
+      onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+          var center = layer.getBounds().getCenter();
+          buatRuteDariLokasiSaya(center);
         });
-    } else {
-        alert("Geolocation tidak didukung di browser Anda.");
-    }
+      }
+    }).addTo(map).bindPopup("Bangunan Umum");
+  });
+
+fetch('assets/geojson/asramaputra.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#1e6395", weight: 1, fillOpacity: 0.6 }
+    }).addTo(map).bindPopup("Asrama Putra");
+  });
+// ==== Klik area GeoJSON → tampilkan rute dari lokasi pengguna ====
+function buatRuteDariLokasiSaya(tujuan) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var userLatLng = [pos.coords.latitude, pos.coords.longitude];
+      L.marker(userLatLng, {
+        icon: L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/64/64113.png',
+          iconSize: [25,25]
+        })
+      })
+      .addTo(map)
+      .bindPopup("<b>Lokasi Anda</b>")
+      .openPopup();
+      map.flyTo(userLatLng, 17);
+
+      control.setWaypoints([
+        L.latLng(userLatLng),
+        L.latLng(tujuan)
+      ]);
+    });
+  } else {
+    alert("Browser tidak mendukung fitur lokasi.");
+  }
+}
+
+// Tambahkan event klik ke layer GeoJSON
+fetch('assets/geojson/asramaputra.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#1e6395", weight: 1, fillOpacity: 0.6 },
+      onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+          var center = layer.getBounds().getCenter();
+          buatRuteDariLokasiSaya(center);
+        });
+      }
+    }).addTo(map).bindPopup("Asrama Putra");
+  });
+
+fetch('assets/geojson/asramaputri.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#ff6600", weight: 1, fillOpacity: 0.6 }
+    }).addTo(map).bindPopup("Asrama Putri");
+  });
+// ==== Klik area GeoJSON → tampilkan rute dari lokasi pengguna ====
+function buatRuteDariLokasiSaya(tujuan) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var userLatLng = [pos.coords.latitude, pos.coords.longitude];
+      L.marker(userLatLng, {
+        icon: L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/64/64113.png',
+          iconSize: [25,25]
+        })
+      })
+      .addTo(map)
+      .bindPopup("<b>Lokasi Anda</b>")
+      .openPopup();
+      map.flyTo(userLatLng, 17);
+
+      control.setWaypoints([
+        L.latLng(userLatLng),
+        L.latLng(tujuan)
+      ]);
+    });
+  } else {
+    alert("Browser tidak mendukung fitur lokasi.");
+  }
+}
+// Tambahkan event klik ke layer GeoJSON
+fetch('assets/geojson/asramaputri.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: { color: "#1e6395", weight: 1, fillOpacity: 0.6 },
+      onEachFeature: function(feature, layer) {
+        layer.on('click', function() {
+          var center = layer.getBounds().getCenter();
+          buatRuteDariLokasiSaya(center);
+        });
+      }
+    }).addTo(map).bindPopup("Asrama Putri");
+  });
+
+// ============================
+// LOKASI PESANTREN & MARKER
+// ============================
+var pesantrenLoc = L.marker([-7.826937, 110.361292]).addTo(map);
+pesantrenLoc.bindPopup("<b>Pondok Pesantren Al-Munawwir</b>");
+
+// ============================
+// RUTE (Leaflet Routing Machine)
+// ============================
+var control = L.Routing.control({
+  waypoints: [],
+  routeWhileDragging: false,
+  addWaypoints: false
+}).addTo(map);
+// Tambahkan tombol hapus rute
+var deleteButton = L.control({ position: 'topleft' });
+deleteButton.onAdd = function(map) {
+  var div = L.DomUtil.create('div', 'leaflet-bar');
+  div.innerHTML = '<button id="btnHapusRute" title="Hapus Rute" style="background:white;border:none;padding:4px 8px;font-weight:bold;">❌</button>';
+  return div;
 };
-menu.appendChild(btnLokasi);
+deleteButton.addTo(map);
 
-// Tambahkan menu ke peta
-map.addControl({
-    onAdd: function () {
-        return menu;
-    },
-    onRemove: function () {
-        menu.parentNode.removeChild(menu);
-    }
-}, 'top-left');
+// Event klik tombol hapus rute
+document.getElementById("btnHapusRute").onclick = function() {
+  control.setWaypoints([]);
+  map.closePopup();
+};
+var customControl = L.control({position: 'topright'});
+customControl.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'map-btn');
+  div.innerHTML = `
+    <button id="btnPesantren" class="btn btn-danger btn-sm mb-1">🏠 Lokasi Pesantren</button><br>
+    <button id="btnLokasi" class="btn btn-primary btn-sm">📍 Lokasi Saya</button>
+  `;
+  return div;
+};
+customControl.addTo(map);
+
+// Event tombol
+document.getElementById("btnPesantren").onclick = function() {
+  map.flyTo([-7.826937, 110.361292], 18, {animate: true, duration: 2});
+};
+
+document.getElementById("btnLokasi").onclick = function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      var userLatLng = [pos.coords.latitude, pos.coords.longitude];
+      L.marker(userLatLng, {icon: L.icon({iconUrl: 'https://cdn-icons-png.flaticon.com/512/64/64113.png', iconSize: [25,25]})})
+        .addTo(map)
+        .bindPopup("<b>Lokasi Anda</b>")
+        .openPopup();
+      map.flyTo(userLatLng, 17);
+      control.setWaypoints([
+        L.latLng(userLatLng),
+        L.latLng([-7.826937, 110.361292])
+      ]);
+    });
+  } else {
+    alert("Browser tidak mendukung fitur lokasi.");
+  }
+};
 </script>
-
-
     </body>
 </html>
